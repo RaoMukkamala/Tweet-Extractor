@@ -1,0 +1,405 @@
+﻿{
+
+  "tweets": [
+    {
+      "created_at": "Tue Dec 01 19:08:54 +0000 2015",
+      "id": 671767949552697345,
+      "id_str": "671767949552697345",
+      "text": "Praying for everyone.. Everyone should be safe .. 🙏🏻 in chennai #chennairains",
+      "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 234277518,
+        "id_str": "234277518",
+        "name": "NAGA SAI REDDY™",
+        "screen_name": "alwaysNAGA",
+        "location": "Hyderabad/Chennai/Goa",
+        "description": "||Unpredictable....:)||Fan of SuperStars @urstrulymahesh @superstarrajini & Kalatapasvi #KViswanath garu ||",
+        "url": "https://t.co/3vL6WKQDyR",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "https://t.co/3vL6WKQDyR",
+                "expanded_url": "https://www.facebook.com/alwaysNAGA",
+                "display_url": "facebook.com/alwaysNAGA",
+                "indices": [ 0, 23 ]
+              }
+            ]
+          },
+          "description": { "urls": [ ] }
+        },
+        "protected": false,
+        "followers_count": 471,
+        "friends_count": 568,
+        "listed_count": 10,
+        "created_at": "Wed Jan 05 07:36:12 +0000 2011",
+        "favourites_count": 4383,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 12565,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "022330",
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme15/bg.png",
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme15/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/695541651297570816/-gAcYVFv_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/695541651297570816/-gAcYVFv_normal.jpg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/234277518/1383729986",
+        "profile_link_color": "0084B4",
+        "profile_sidebar_border_color": "A8C7F7",
+        "profile_sidebar_fill_color": "C0DFEC",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": true,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": {
+        "id": "5a48fa649ca2da0c",
+        "url": "https://api.twitter.com/1.1/geo/id/5a48fa649ca2da0c.json",
+        "place_type": "city",
+        "name": "Ponda",
+        "full_name": "Ponda, India",
+        "country_code": "IN",
+        "country": "भारत",
+        "contained_within": [ ],
+        "bounding_box": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [ 73.9753179, 15.3756401 ],
+              [ 74.0352941, 15.3756401 ],
+              [ 74.0352941, 15.4242352 ],
+              [ 73.9753179, 15.4242352 ]
+            ]
+          ]
+        },
+        "attributes": { }
+      },
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 0,
+      "favorite_count": 0,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "chennairains",
+            "indices": [ 64, 77 ]
+          }
+        ],
+        "symbols": [ ],
+        "user_mentions": [ ],
+        "urls": [ ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "lang": "en"
+    },
+    {
+      "created_at": "Tue Dec 01 19:08:56 +0000 2015",
+      "id": 671767958239076352,
+      "id_str": "671767958239076352",
+      "text": "RT @DCranchi: Ppl b safe nd follow d instructions from Govt. We are r with u  TamilNadu. #ChennaiRains",
+      "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 33844041,
+        "id_str": "33844041",
+        "name": "Mohan",
+        "screen_name": "Mohandb",
+        "location": "“Listen.Reflect.Assimilate.”",
+        "description": "“Devotion to duty is the highest form of worship of God.”\r\n― Swami Vivekananda",
+        "url": null,
+        "entities": { "description": { "urls": [ ] } },
+        "protected": false,
+        "followers_count": 348,
+        "friends_count": 214,
+        "listed_count": 70,
+        "created_at": "Tue Apr 21 07:39:59 +0000 2009",
+        "favourites_count": 5278,
+        "utc_offset": 28800,
+        "time_zone": "Hong Kong",
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 64927,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "8B542B",
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme8/bg.gif",
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme8/bg.gif",
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/680241629056253952/LfkiqB53_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/680241629056253952/LfkiqB53_normal.jpg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/33844041/1436643453",
+        "profile_link_color": "9D582E",
+        "profile_sidebar_border_color": "D9B17E",
+        "profile_sidebar_fill_color": "EADEAA",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "retweeted_status": {
+        "created_at": "Tue Dec 01 19:06:22 +0000 2015",
+        "id": 671767312291139584,
+        "id_str": "671767312291139584",
+        "text": "Ppl b safe nd follow d instructions from Govt. We are r with u  TamilNadu. #ChennaiRains",
+        "source": "<a href=\"http://www.twitter.com\" rel=\"nofollow\">Twitter for Windows Phone</a>",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+          "id": 239696391,
+          "id_str": "239696391",
+          "name": "DEEPANKAR_BJP",
+          "screen_name": "DCranchi",
+          "location": "Ranchi, India ",
+          "description": "A PROUD INDIAN and a proud Hindu get it now.....",
+          "url": null,
+          "entities": { "description": { "urls": [ ] } },
+          "protected": false,
+          "followers_count": 149,
+          "friends_count": 267,
+          "listed_count": 16,
+          "created_at": "Tue Jan 18 06:19:42 +0000 2011",
+          "favourites_count": 607,
+          "utc_offset": 19800,
+          "time_zone": "New Delhi",
+          "geo_enabled": true,
+          "verified": false,
+          "statuses_count": 8606,
+          "lang": "en",
+          "contributors_enabled": false,
+          "is_translator": false,
+          "is_translation_enabled": false,
+          "profile_background_color": "000000",
+          "profile_background_image_url": "http://abs.twimg.com/images/themes/theme11/bg.gif",
+          "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme11/bg.gif",
+          "profile_background_tile": false,
+          "profile_image_url": "http://pbs.twimg.com/profile_images/699094903582650368/q_PWXK-F_normal.jpg",
+          "profile_image_url_https": "https://pbs.twimg.com/profile_images/699094903582650368/q_PWXK-F_normal.jpg",
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/239696391/1453791327",
+          "profile_link_color": "9266CC",
+          "profile_sidebar_border_color": "000000",
+          "profile_sidebar_fill_color": "000000",
+          "profile_text_color": "000000",
+          "profile_use_background_image": false,
+          "has_extended_profile": false,
+          "default_profile": false,
+          "default_profile_image": false,
+          "following": false,
+          "follow_request_sent": false,
+          "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "is_quote_status": false,
+        "retweet_count": 6,
+        "favorite_count": 2,
+        "entities": {
+          "hashtags": [
+            {
+              "text": "ChennaiRains",
+              "indices": [ 75, 88 ]
+            }
+          ],
+          "symbols": [ ],
+          "user_mentions": [ ],
+          "urls": [ ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+      },
+      "is_quote_status": false,
+      "retweet_count": 6,
+      "favorite_count": 0,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "ChennaiRains",
+            "indices": [ 89, 102 ]
+          }
+        ],
+        "symbols": [ ],
+        "user_mentions": [
+          {
+            "screen_name": "DCranchi",
+            "name": "DEEPANKAR_BJP",
+            "id": 239696391,
+            "id_str": "239696391",
+            "indices": [ 3, 12 ]
+          }
+        ],
+        "urls": [ ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "lang": "en"
+    },
+    {
+      "created_at": "Tue Dec 01 19:08:55 +0000 2015",
+      "id": 671767954070073344,
+      "id_str": "671767954070073344",
+      "text": "Looks like #Urappakkam is in big trouble!\n@NDRFHQ @TwitterIndia @the_hindu \n#ChennaiRainsHelp \n#ChennaiRescue  https://t.co/FWHaAGbiTz",
+      "source": "<a href=\"https://about.twitter.com/products/tweetdeck\" rel=\"nofollow\">TweetDeck</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 100960520,
+        "id_str": "100960520",
+        "name": "For-e-Surajya",
+        "screen_name": "keshda",
+        "location": "",
+        "description": "Never knew I had an opinion on everything, till twitter happened!",
+        "url": "https://t.co/y2EVBCoTOi",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "https://t.co/y2EVBCoTOi",
+                "expanded_url": "http://keshda.blogspot.com",
+                "display_url": "keshda.blogspot.com",
+                "indices": [ 0, 23 ]
+              }
+            ]
+          },
+          "description": { "urls": [ ] }
+        },
+        "protected": false,
+        "followers_count": 1825,
+        "friends_count": 643,
+        "listed_count": 114,
+        "created_at": "Fri Jan 01 11:45:42 +0000 2010",
+        "favourites_count": 6866,
+        "utc_offset": 19800,
+        "time_zone": "Mumbai",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 132572,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "0099B9",
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme4/bg.gif",
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme4/bg.gif",
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/638636187960279040/_sRI9uhd_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/638636187960279040/_sRI9uhd_normal.jpg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/100960520/1412795019",
+        "profile_link_color": "0099B9",
+        "profile_sidebar_border_color": "5ED4DC",
+        "profile_sidebar_fill_color": "95E8EC",
+        "profile_text_color": "3C3940",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": true,
+      "retweet_count": 0,
+      "favorite_count": 0,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "Urappakkam",
+            "indices": [ 11, 22 ]
+          },
+          {
+            "text": "ChennaiRainsHelp",
+            "indices": [ 76, 93 ]
+          },
+          {
+            "text": "ChennaiRescue",
+            "indices": [ 95, 109 ]
+          }
+        ],
+        "symbols": [ ],
+        "user_mentions": [
+          {
+            "screen_name": "NDRFHQ",
+            "name": "NDRF",
+            "id": 2791137282,
+            "id_str": "2791137282",
+            "indices": [ 42, 49 ]
+          },
+          {
+            "screen_name": "TwitterIndia",
+            "name": "Twitter India",
+            "id": 103770785,
+            "id_str": "103770785",
+            "indices": [ 50, 63 ]
+          },
+          {
+            "screen_name": "the_hindu",
+            "name": "The Hindu",
+            "id": 20751449,
+            "id_str": "20751449",
+            "indices": [ 64, 74 ]
+          }
+        ],
+        "urls": [
+          {
+            "url": "https://t.co/FWHaAGbiTz",
+            "expanded_url": "https://twitter.com/saranonline/status/671753867910971392",
+            "display_url": "twitter.com/saranonline/st…",
+            "indices": [ 111, 134 ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    }
+  ]
+
+}

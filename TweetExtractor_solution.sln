@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetExtractorTestApp", "TweetExtractorTestApp\TweetExtractorTestApp.csproj", "{C57707EF-9E36-4EA0-A883-B115EF459BFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetDataExtractor", "TweetDataExtractor\TweetDataExtractor.csproj", "{54B99AEE-D494-47B6-B23F-256645215B1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetExtractorConsoleApp", "TweetExtractorConsoleApp\TweetExtractorConsoleApp.csproj", "{ABBF55A3-2E40-42E7-BA20-7BF5B0E33E4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProcessingExports", "DataProcessingExports\DataProcessingExports.csproj", "{6A12A9BD-2707-4B55-A6AD-C426E9412181}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B007F108-47D9-49AE-8F43-FCE7DBDE10C9}"
+	ProjectSection(SolutionItems) = preProject
+		followers-json-example.json = followers-json-example.json
+		retweet-example.json = retweet-example.json
+		Sample.json = Sample.json
+		Sample_Radion6_data.csv = Sample_Radion6_data.csv
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C57707EF-9E36-4EA0-A883-B115EF459BFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C57707EF-9E36-4EA0-A883-B115EF459BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C57707EF-9E36-4EA0-A883-B115EF459BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C57707EF-9E36-4EA0-A883-B115EF459BFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54B99AEE-D494-47B6-B23F-256645215B1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54B99AEE-D494-47B6-B23F-256645215B1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54B99AEE-D494-47B6-B23F-256645215B1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54B99AEE-D494-47B6-B23F-256645215B1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABBF55A3-2E40-42E7-BA20-7BF5B0E33E4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABBF55A3-2E40-42E7-BA20-7BF5B0E33E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABBF55A3-2E40-42E7-BA20-7BF5B0E33E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABBF55A3-2E40-42E7-BA20-7BF5B0E33E4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A12A9BD-2707-4B55-A6AD-C426E9412181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A12A9BD-2707-4B55-A6AD-C426E9412181}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A12A9BD-2707-4B55-A6AD-C426E9412181}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A12A9BD-2707-4B55-A6AD-C426E9412181}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
