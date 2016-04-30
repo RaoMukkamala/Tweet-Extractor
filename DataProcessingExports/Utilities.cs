@@ -100,5 +100,17 @@ namespace DataProcessingExports
 
         }
 
+        public static string EscapeSingleQuotes(string sql)
+        {
+            if (string.IsNullOrEmpty(sql)) return sql;
+
+            return sql.Replace("'", "''");
+
+        }
+
+        public static string GetSubString(string text, int length)
+        {
+            return string.IsNullOrEmpty(text) ? text : (text.Length <= length ? text : text.Substring(0, length));
+        }
     }
 }

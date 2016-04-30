@@ -48,10 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataExports\DataExporter.cs" />
+    <Compile Include="DataExports\ExportUsers.cs" />
     <Compile Include="DataImports\TweetIdExtractor.cs" />
     <Compile Include="DataImports\TweetIdExtractorTUT.cs" />
     <Compile Include="DataProcessing\DataCleaner.cs" />
     <Compile Include="DataProcessing\RetweetStatusUpdater.cs" />
+    <Compile Include="DataProcessing\TweetUserImporter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities.cs" />

@@ -257,11 +257,13 @@ namespace TweetExtractorTestApp
 
                 //request.AddQueryParameter("resources", "statuses");
                 //followers
-                request.AddQueryParameter("resources", "followers");
+                request.AddQueryParameter("resources", "followers,users");
 
                 var response = client.Execute(request);
 
-                var tObj = JsonConvert.DeserializeObject<TweetApiLimits>(response.Content);
+                var tObj = JsonConvert.DeserializeObject< TweetApiLimits >(response.Content);
+
+                Console.WriteLine(response.Content);
 
                 Console.WriteLine(tObj.resources.statuses.StatusLookUp.remaining);
 

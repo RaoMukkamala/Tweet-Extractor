@@ -5,7 +5,7 @@ using TweetDataExtractor.Json;
 
 namespace TweetDataExtractor
 {
-    public class Utilities
+    public static class Utilities
     {
 
         public const string TwitterDateFormatString = "ddd MMM dd HH:mm:ss +ffff yyyy";
@@ -112,7 +112,17 @@ namespace TweetDataExtractor
         }
 
 
+        public static DateTime FromUnixTimeToUtcDateTime(this long unixTime)
+        {
+            var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            return epoch.AddSeconds(unixTime);
+        }
 
+        public static long ToUnixTimeFromUtcDateTime(this DateTime date)
+        {
+            var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            return Convert.ToInt64((date.ToUniversalTime() - epoch).TotalSeconds);
+        }
 
     }
 }

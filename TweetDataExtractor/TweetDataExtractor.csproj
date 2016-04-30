@@ -59,6 +59,7 @@
     <Compile Include="Tweet\TweetIdFileProcessor.cs" />
     <Compile Include="Tweet\TweetRequestManager.cs" />
     <Compile Include="Tweet\TweetStats.cs" />
+    <Compile Include="Tweet\UserFoloowersDownloader.cs" />
     <Compile Include="Utilities.cs" />
   </ItemGroup>
   <ItemGroup>

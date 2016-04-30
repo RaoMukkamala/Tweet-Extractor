@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataProcessingExports.DataExports;
 using DataProcessingExports.DataProcessing;
 using Newtonsoft.Json;
 using TweetDataExtractor.Json;
@@ -22,7 +23,11 @@ namespace DataProcessingExports
             //Tweetparsing();
             //ParseTweets();
 
-            RetweetStatusUpdater.UpdateRetweetStatusToDb();
+            //RetweetStatusUpdater.UpdateRetweetStatusToDb();
+
+            //TweetUserImporter.ImportTweetUserToDb();
+            UserExport.ExportUsers();
+
 
             Console.ReadLine();
 
