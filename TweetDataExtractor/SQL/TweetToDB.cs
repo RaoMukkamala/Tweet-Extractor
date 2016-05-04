@@ -55,44 +55,36 @@ namespace TweetDataExtractor.SQL
         {
             var tempDateTime = new DateTime(1900, 1, 1);
 
-            var paramsToStore = new SqlParameter[21];
+            var paramsToStore = new SqlParameter[25];
 
-            paramsToStore[4] = new SqlParameter("@RetweetCount", SqlDbType.SmallInt)
+            paramsToStore[4] = new SqlParameter("@RetweetCount", SqlDbType.Int)
             {
-                Value = (_tweetobj.retweet_count > short.MaxValue) ? short.MaxValue : _tweetobj.retweet_count
+                Value = _tweetobj.retweet_count
             };
 
 
-            paramsToStore[5] = new SqlParameter("@FavoriteCount", SqlDbType.SmallInt)
+            paramsToStore[5] = new SqlParameter("@FavoriteCount", SqlDbType.Int)
             {
-                Value = (_tweetobj.favorite_count > short.MaxValue)
-                    ? short.MaxValue
-                    : _tweetobj.favorite_count
+                Value = _tweetobj.favorite_count
             };
 
 
-            paramsToStore[12] = new SqlParameter("@UserFollowerCount", SqlDbType.SmallInt)
+            paramsToStore[12] = new SqlParameter("@UserFollowerCount", SqlDbType.Int)
             {
-                Value = (_tweetobj.user.followers_count > short.MaxValue)
-                    ? short.MaxValue
-                    : _tweetobj.user.followers_count
+                Value = _tweetobj.user.followers_count
             };
 
 
-            paramsToStore[13] = new SqlParameter("@UserFriendsCount", SqlDbType.SmallInt)
+            paramsToStore[13] = new SqlParameter("@UserFriendsCount", SqlDbType.Int)
             {
-                Value = (_tweetobj.user.friends_count > short.MaxValue)
-                    ? short.MaxValue
-                    : _tweetobj.user.friends_count
+                Value = _tweetobj.user.friends_count
             };
 
 
 
-            paramsToStore[15] = new SqlParameter("@UserFavoritesCount", SqlDbType.SmallInt)
+            paramsToStore[15] = new SqlParameter("@UserFavoritesCount", SqlDbType.Int)
             {
-                Value = (_tweetobj.user.favourites_count > short.MaxValue)
-                    ? short.MaxValue
-                    : _tweetobj.user.favourites_count
+                Value = _tweetobj.user.favourites_count
             };
 
             paramsToStore[9] = new SqlParameter("@UserId", SqlDbType.BigInt) {Value = _tweetobj.user.id};
@@ -154,8 +146,8 @@ namespace TweetDataExtractor.SQL
 
             paramsToStore[2] = new SqlParameter("@Text", SqlDbType.NVarChar)
             {
-               
-                Size = 350
+             
+                Size = 500
             };
 
             if (string.IsNullOrEmpty(_tweetobj.text))
@@ -186,7 +178,7 @@ namespace TweetDataExtractor.SQL
 
             paramsToStore[11] = new SqlParameter("@UserLocation", SqlDbType.NVarChar)
             {
-                Size = 100
+                Size = 250
             };
 
             if (string.IsNullOrEmpty(_tweetobj.user.location))
@@ -201,7 +193,7 @@ namespace TweetDataExtractor.SQL
 
             paramsToStore[16] = new SqlParameter("@UserTimeZone", SqlDbType.NVarChar)
             {
-                Size = 100
+                Size = 50
             };
 
 
@@ -217,7 +209,7 @@ namespace TweetDataExtractor.SQL
 
             paramsToStore[20] = new SqlParameter("@Hashtags", SqlDbType.NVarChar)
             {
-                Size = 100
+                Size = 250
             };
 
             var hashtags = Utilities.ExtractHashTags(_tweetobj);
@@ -231,6 +223,37 @@ namespace TweetDataExtractor.SQL
                 paramsToStore[20].Value = hashtags;
             }
 
+
+            paramsToStore[21] = new SqlParameter("@RetweetStatusBit", SqlDbType.Bit)
+            {
+                Value = (_tweetobj.retweeted_status == null) ? 0 : 1
+            };
+
+
+            paramsToStore[22] = new SqlParameter("@OriginalTweetId", SqlDbType.BigInt)
+            {
+                Value = (_tweetobj.retweeted_status != null) ? (object)_tweetobj.retweeted_status.id : DBNull.Value
+            };
+
+
+            paramsToStore[23] = new SqlParameter("@OriginalTweetUserId", SqlDbType.BigInt)
+            {
+                Value = (_tweetobj.retweeted_status != null) ? (object)_tweetobj.retweeted_status.user.id : DBNull.Value
+            };
+
+
+            paramsToStore[24] = new SqlParameter("@OriginalTweetDate", SqlDbType.DateTime);
+
+
+            if (_tweetobj.retweeted_status != null)
+            {
+                paramsToStore[24].Value = Utilities.TryParseTwitterDateTimeString(_tweetobj.retweeted_status.created_at, tempDateTime);
+
+            }
+            else
+            {
+                paramsToStore[24].Value = DBNull.Value;
+            }
 
 
             return paramsToStore;

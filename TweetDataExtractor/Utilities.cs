@@ -36,6 +36,10 @@ namespace TweetDataExtractor
         }
 
 
+
+
+
+
         public static DateTime TryParseDateTimeString(string value, DateTime defaultValue)
         {
             DateTime result;
@@ -95,7 +99,7 @@ namespace TweetDataExtractor
         {
             var hashtagsText = string.Empty;
 
-            if ((tweetobj.entities != null) && (tweetobj.entities.hashtags != null))
+            if (tweetobj.entities?.hashtags != null)
             {
                 hashtagsText = tweetobj.entities.hashtags.Where(hashtag => !string.IsNullOrEmpty(hashtag.text)).Aggregate(hashtagsText, (current, hashtag) => string.Format("{0},{1}", current, hashtag.text));
             }
@@ -107,7 +111,7 @@ namespace TweetDataExtractor
 
 
 
-            return string.Format("\"{0}\"", hashtagsText);
+            return $"\"{hashtagsText}\"";
 
         }
 

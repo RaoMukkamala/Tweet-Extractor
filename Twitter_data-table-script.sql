@@ -1,4 +1,4 @@
-﻿
+﻿-- Updated Table. Modified by Raghava on 2016/05/01: changed the fields to latest version
 GO
 
 /****** Object:  Table [dbo].[TweetData]    Script Date: 5/1/2016 6:39:42 PM ******/
@@ -14,25 +14,25 @@ GO
 CREATE TABLE [dbo].[TweetData](
 	[TweetId] [bigint] NOT NULL,
 	[TweetDate] [datetime] NULL,
-	[Text] [nvarchar](175) NULL,
+	[Text] [nvarchar](500) NULL,
 	[Truncated] [bit] NULL,
-	[RetweetCount] [smallint] NULL,
-	[FavoriteCount] [smallint] NULL,
+	[RetweetCount] [int] NULL,
+	[FavoriteCount] [int] NULL,
 	[Retweeted] [bit] NULL,
 	[Favorited] [bit] NULL,
 	[TweetLang] [varchar](10) NULL,
 	[UserId] [bigint] NULL,
-	[UserName] [nvarchar](100) NULL,
-	[UserLocation] [nvarchar](50) NULL,
-	[UserFollowerCount] [smallint] NULL,
-	[UserFriendsCount] [smallint] NULL,
+	[UserName] [nvarchar](200) NULL,
+	[UserLocation] [nvarchar](250) NULL,
+	[UserFollowerCount] [int] NULL,
+	[UserFriendsCount] [int] NULL,
 	[UserCreatedDate] [datetime] NULL,
-	[UserFavoritesCount] [smallint] NULL,
+	[UserFavoritesCount] [int] NULL,
 	[UserTimeZone] [nvarchar](50) NULL,
 	[UserUTCOffset] [varchar](10) NULL,
 	[UserStatusesCount] [int] NULL,
 	[UserLang] [varchar](10) NULL,
-	[Hashtags] [nvarchar](100) NULL,
+	[Hashtags] [nvarchar](250) NULL,
 	[RetweetStatusBit] [bit] NULL,
 	[OriginalTweetId] [bigint] NULL,
 	[OriginalTweetUserId] [bigint] NULL,
