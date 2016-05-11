@@ -26,7 +26,8 @@ namespace DataProcessingExports
             //RetweetStatusUpdater.UpdateRetweetStatusToDb();
 
             //TweetUserImporter.ImportTweetUserToDb();
-            UserExport.ExportUsers();
+            //UserExport.ExportUsers();
+            ExportTweets();
 
 
             Console.ReadLine();
@@ -101,6 +102,22 @@ namespace DataProcessingExports
 
                 Console.WriteLine(exception.Message);
             }
+
+
+
+        }
+
+        private static void ExportTweets()
+        {
+
+            var query = "SELECT  [TweetId] ,CONVERT( datetime, [TweetDate], 126) ,[Text] FROM[dbo].[TweetData] order by TweetDate";
+
+            var destinationFolder = @"C:\Users\Alivelu\Dropbox\PhD-work\Twitter-data-analysis\Chennai-Floods\tweets-for-topic-modeling";
+
+            var linesLimit = 500000;
+
+            DataExporter.ExportData(query, destinationFolder, linesLimit);
+
 
 
 

@@ -49,6 +49,40 @@ namespace DataProcessingExports
 
         }
 
+
+        public static string ProcessTextExcludingComma(string value)
+        {
+            if (string.IsNullOrEmpty(value)) return string.Empty;
+
+            var newValue = value.Replace(Environment.NewLine, string.Empty);
+
+            //newValue = newValue.Replace(",", string.Empty);
+
+
+            newValue = newValue.Replace("\"", string.Empty);
+
+            newValue = newValue.Replace("'", string.Empty);
+
+
+            newValue = newValue.Replace(@"\n", string.Empty);
+
+            newValue = newValue.Replace(@"\r", string.Empty);
+
+            newValue = newValue.Replace("\x000A", string.Empty);
+
+            newValue = newValue.Replace("\x000D\x000A", string.Empty);
+
+            newValue = newValue.Replace("\x000D", string.Empty);
+
+            newValue = newValue.Replace("\x0A", string.Empty);
+
+            newValue = newValue.Replace("\x0D", string.Empty);
+
+            return $"\"{newValue}\"";
+
+        }
+
+
         public static DateTime TryParseTwitterDateTimeString(string value, DateTime defaultValue)
         {
             try

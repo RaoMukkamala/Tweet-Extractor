@@ -13,11 +13,11 @@ namespace DataProcessingExports.DataExports
     {
 
 
-        private static string _sqlQuery = "SELECT *  FROM [dbo].[TweetData]   where RetweetCount = 0 order by TweetDate";
+        //private static string _sqlQuery = "SELECT *  FROM [dbo].[TweetData]   where RetweetCount = 0 order by TweetDate";
 
-        private static string _destinationFolder = @"C:\Users\Alivelu\Dropbox\PhD-work\Twitter-data-analysis\Chennai-Floods\original-tweets";
+        //private static string _destinationFolder = @"C:\Users\Alivelu\Dropbox\PhD-work\Twitter-data-analysis\Chennai-Floods\original-tweets";
 
-        private static int _lineslimit = 100000;
+        //private static int _lineslimit = 100000;
 
         private static int _fileIndex = 1;
 
@@ -28,12 +28,12 @@ namespace DataProcessingExports.DataExports
 
 
 
-        public static void ExportData()
+        public static void ExportData(string sqlQuery, string destinationFolder, int linesLimit)
         {
 
             Console.WriteLine($"{DateTime.Now}: Starting exporting records.");
 
-            InitialiseWriter();
+            InitialiseWriter(destinationFolder);
 
 
             try
@@ -42,7 +42,7 @@ namespace DataProcessingExports.DataExports
                 {
                     var command = new SqlCommand
                     {
-                        CommandText = _sqlQuery,
+                        CommandText = sqlQuery,
                         CommandType = CommandType.Text,
                         Connection = connection,
                         CommandTimeout = 0
@@ -60,16 +60,20 @@ namespace DataProcessingExports.DataExports
 
                     while (dataReader.Read())
                     {
+                        var values = dataReader.GetValuesList().Select(data => Utilities.ProcessText(data)).ToList();
 
-                        var valuesStr = string.Join(",", dataReader.GetValuesList());
+
+                        //var valuesStr = string.Join(",", dataReader.GetValuesList());
+
+                        var valuesStr = string.Join(",", values);
 
                         _writer.WriteLine(valuesStr);
 
                         _recordCount++;
 
-                        if (_recordCount % _lineslimit == 0)
+                        if (_recordCount % linesLimit == 0)
                         {
-                            InitialiseWriter();
+                            InitialiseWriter(destinationFolder);
 
                             _writer.WriteLine(columnList);
 
@@ -97,12 +101,12 @@ namespace DataProcessingExports.DataExports
 
         }
 
-        private static void InitialiseWriter()
+        private static void InitialiseWriter(string destinationFolder)
         {
             // first claose the writer is it is laredy open.
             _writer?.Close();
 
-            var filePath = $@"{_destinationFolder}\dataexport_{_fileIndex}.csv";
+            var filePath = $@"{destinationFolder}\dataexport_{_fileIndex}.csv";
 
             _writer = new StreamWriter(filePath) { AutoFlush = true };
 
