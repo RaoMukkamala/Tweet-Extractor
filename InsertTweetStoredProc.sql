@@ -1,4 +1,4 @@
-﻿
+﻿-- Updated by Raghava on 2016/05/01. Mapped the fields to the latest version.
 GO
 /****** Object:  StoredProcedure [dbo].[InsertTweet]    Script Date: 5/1/2016 6:52:31 PM ******/
 SET ANSI_NULLS ON
@@ -15,25 +15,30 @@ ALTER PROCEDURE [dbo].[InsertTweet]
 	-- Add the parameters for the stored procedure here
 	@TweetId bigint = 0, 
 	@TweetDate datetime null,
-	@Text nvarchar(175) null,
+	@Text nvarchar(500) null,
 	@Truncated bit null,
-	@RetweetCount smallint null
-    ,@FavoriteCount smallint null
+	@RetweetCount int null
+    ,@FavoriteCount int null
     ,@Retweeted bit null
     ,@Favorited bit null
     ,@TweetLang varchar(10) null
     ,@UserId bigint null
-    ,@UserName nvarchar(100) null
-    ,@UserLocation nvarchar(50) null
-    ,@UserFollowerCount smallint null
-    ,@UserFriendsCount smallint null
+    ,@UserName nvarchar(200) null
+    ,@UserLocation nvarchar(250) null
+    ,@UserFollowerCount int null
+    ,@UserFriendsCount int null
     ,@UserCreatedDate datetime null
-    ,@UserFavoritesCount smallint null
+    ,@UserFavoritesCount int null
     ,@UserTimeZone nvarchar(50) null
     ,@UserUTCOffset varchar(10) null
     ,@UserStatusesCount int null
     ,@UserLang varchar(10) null
-	,@Hashtags nvarchar(100) null
+	,@Hashtags nvarchar(250) null
+    ,@RetweetStatusBit bit null
+    ,@OriginalTweetId bigint null
+    ,@OriginalTweetUserId bigint null
+    ,@OriginalTweetDate datetime null
+
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -67,9 +72,15 @@ BEGIN
       ,[UserUTCOffset]
       ,[UserStatusesCount]
       ,[UserLang]
-      ,[Hashtags])
-		values(@TweetId,@TweetDate, @Text, @Truncated, @RetweetCount, @FavoriteCount, @Retweeted, @Favorited,
-		@TweetLang, @UserId, @UserName, @UserLocation, @UserFollowerCount, @UserFriendsCount, @UserCreatedDate, @UserFavoritesCount, @UserTimeZone, @UserUTCOffset, @UserStatusesCount, @UserLang, @Hashtags);    
+      ,[Hashtags]
+      ,[RetweetStatusBit]
+      ,[OriginalTweetId]
+      ,[OriginalTweetUserId]
+      ,[OriginalTweetDate])
+		VALUES(@TweetId,@TweetDate, @Text, @Truncated, @RetweetCount, @FavoriteCount, @Retweeted, @Favorited,
+		@TweetLang, @UserId, @UserName, @UserLocation, @UserFollowerCount, @UserFriendsCount, @UserCreatedDate, 
+		@UserFavoritesCount, @UserTimeZone, @UserUTCOffset, @UserStatusesCount, @UserLang, @Hashtags
+		,@RetweetStatusBit ,@OriginalTweetId ,@OriginalTweetUserId ,@OriginalTweetDate );    
 
 
 END

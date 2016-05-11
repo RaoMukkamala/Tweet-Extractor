@@ -650,5 +650,15 @@ namespace TweetExtractorTestApp
 
 
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+
+            object dtObj = (object) DateTime.Now;
+
+            MessageBox.Show(dtObj.ToString());
+
+        }
+
     }
 }
