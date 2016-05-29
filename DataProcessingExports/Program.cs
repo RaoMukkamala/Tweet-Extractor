@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DataProcessingExports.DataExports;
 using DataProcessingExports.DataProcessing;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using TweetDataExtractor.Json;
 
 namespace DataProcessingExports
@@ -27,7 +28,10 @@ namespace DataProcessingExports
 
             //TweetUserImporter.ImportTweetUserToDb();
             //UserExport.ExportUsers();
-            ExportTweets();
+            //ExportTweets();
+            //ExportTweetsAsJSON();
+            //SortDictionaryTest();
+            ProcessTopicModels.ComputeDominentTopicsDayWise();
 
 
             Console.ReadLine();
@@ -107,6 +111,43 @@ namespace DataProcessingExports
 
         }
 
+        private static void ExportTweetsAsJSON()
+        {
+
+            var query = "SELECT[TweetId] tweetId, CONVERT(char(10), [TweetDate], 126) date,[Text] text FROM[dbo].[TweetData] where tweetdate > '2015-11-29' and RetweetStatusBit = 0  order by TweetDate";
+
+
+            query = "SELECT[TweetId] tweetId, CONVERT(char(10), [TweetDate], 126) date,[Text] text FROM[dbo].[TweetData] where RetweetStatusBit = 0 and RetweetCount = 0 and tweetdate > '2015-11-29' order by TweetDate";
+
+            var destinationFolder = @"C:\Users\Alivelu\Dropbox\PhD-work\Twitter-data-analysis\Chennai-Floods\tweets-for-topic-modeling\original-tweets";
+
+            var linesLimit = 500000;
+
+            DataExporter.ExportDataAsJson(query, destinationFolder, linesLimit);
+            
+
+            //var property = new JProperty("Raghava","Asst. Professor");
+
+            //var property2 = new JProperty("date", DateTime.Now.ToString("s"));
+
+            //var jObj = new JObject {property, property2};
+
+            //var array = new JArray {jObj};
+
+            //Console.WriteLine(array);
+
+
+
+
+
+
+
+
+
+        }
+
+
+
         private static void ExportTweets()
         {
 
@@ -119,6 +160,34 @@ namespace DataProcessingExports
             DataExporter.ExportData(query, destinationFolder, linesLimit);
 
 
+
+
+        }
+
+        private static void SortDictionaryTest()
+        {
+
+            Dictionary<string, int> myDict = new Dictionary<string, int>();
+
+            myDict.Add("one", 1);
+            myDict.Add("four", 4);
+            myDict.Add("two", 2);
+            myDict.Add("three", 3);
+
+            foreach (var keyValuePair in myDict)
+            {
+                Console.WriteLine(keyValuePair.Key + ":" + keyValuePair.Value);
+
+            }
+
+
+            var sortedDict = from entry in myDict orderby entry.Value descending select entry;
+
+            foreach (var keyValuePair in sortedDict)
+            {
+                Console.WriteLine(keyValuePair.Key + ":" + keyValuePair.Value);
+
+            }
 
 
         }

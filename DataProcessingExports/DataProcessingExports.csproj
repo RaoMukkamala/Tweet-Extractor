@@ -52,6 +52,7 @@
     <Compile Include="DataImports\TweetIdExtractor.cs" />
     <Compile Include="DataImports\TweetIdExtractorTUT.cs" />
     <Compile Include="DataProcessing\DataCleaner.cs" />
+    <Compile Include="DataProcessing\ProcessTopicModels.cs" />
     <Compile Include="DataProcessing\RetweetStatusUpdater.cs" />
     <Compile Include="DataProcessing\TweetUserImporter.cs" />
     <Compile Include="Program.cs" />

@@ -146,5 +146,23 @@ namespace DataProcessingExports
         {
             return string.IsNullOrEmpty(text) ? text : (text.Length <= length ? text : text.Substring(0, length));
         }
+
+        public static int TryParseIntString(string value, int defaultValue)
+        {
+            int result;
+
+            return (int.TryParse(value, out result)) ? result : defaultValue;
+
+        }
+
+
+        public static double TryParseDoubleString(string value, double defaultValue)
+        {
+            double result;
+
+            return (double.TryParse(value, out result)) ? result : defaultValue;
+
+        }
+
     }
 }

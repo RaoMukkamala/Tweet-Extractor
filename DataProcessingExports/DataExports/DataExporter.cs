@@ -6,6 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace DataProcessingExports.DataExports
 {
@@ -24,6 +26,8 @@ namespace DataProcessingExports.DataExports
         private static int _recordCount = 0;
 
         private static StreamWriter _writer;
+
+        private static JsonWriter _jsonWriter;
 
 
 
@@ -60,7 +64,7 @@ namespace DataProcessingExports.DataExports
 
                     while (dataReader.Read())
                     {
-                        var values = dataReader.GetValuesList().Select(data => Utilities.ProcessText(data)).ToList();
+                        var values = dataReader.GetValuesList().Select(Utilities.ProcessText).ToList();
 
 
                         //var valuesStr = string.Join(",", dataReader.GetValuesList());
@@ -100,6 +104,152 @@ namespace DataProcessingExports.DataExports
 
 
         }
+
+
+        public static void ExportDataAsJson(string sqlQuery, string destinationFolder, int linesLimit)
+        {
+            Console.WriteLine($"{DateTime.Now}: Starting exporting records as JSON.");
+
+
+            try
+            {
+                using (var connection = new SqlConnection(Utilities.connectionString))
+                {
+                    var command = new SqlCommand
+                    {
+                        CommandText = sqlQuery,
+                        CommandType = CommandType.Text,
+                        Connection = connection,
+                        CommandTimeout = 0
+                    };
+
+
+                    connection.Open();
+
+                    var dataReader = command.ExecuteReader();
+
+
+                    var colList = dataReader.ColumnList();
+
+                    var jsonArray = new JArray();
+
+                    InitialiseJonWriter(destinationFolder);
+
+                    _jsonWriter.WriteStartArray();
+
+                    _jsonWriter.Formatting = Formatting.Indented;
+
+                    while (dataReader.Read())
+                    {
+
+                        var valuesList = dataReader.GetValuesList();
+
+                        // write the json object
+                        _jsonWriter.WriteStartObject();
+
+                        for (var index = 0; index < colList.Count; index++)
+                        {
+                            _jsonWriter.WritePropertyName(colList[index], false);
+
+                            _jsonWriter.WriteValue(valuesList[index]);
+
+                        }
+
+                        _jsonWriter.WriteEndObject();
+
+                        _recordCount++;
+
+                        if (_recordCount % 1000 == 0)
+                        {
+                            Console.WriteLine($"{DateTime.Now}: Exported record number: {_recordCount}");
+                        }
+
+
+                        if (_recordCount % linesLimit == 0)
+                        {
+                            // write the end of array.
+                            _jsonWriter.WriteEndArray();
+
+                            InitialiseWriter(destinationFolder);
+
+                            //_writer.WriteLine(columnList);
+
+                            Console.WriteLine($"{DateTime.Now}: Exported record number: {_recordCount}");
+                        }
+
+
+
+
+
+
+
+                        //var jsonObject = new JObject();
+
+                        //for (var index = 0; index < colList.Count; index++)
+                        //{
+                        //    jsonObject.Add(colList[index], valuesList[index]);
+                        //}
+
+
+
+                        //jsonArray.Add(jsonObject);
+
+                        //_recordCount++;
+
+                        //if (_recordCount % linesLimit == 0)
+                        //{
+                        //    InitialiseWriter(destinationFolder);
+
+                        //    //_writer.WriteLine(columnList);
+
+                        //    Console.WriteLine($"{DateTime.Now}: Exported record number: {_recordCount}");
+                        //}
+
+                    }
+
+                    // save the Json array.
+                    _jsonWriter.WriteEndArray();
+
+                    _jsonWriter.Close();
+
+
+
+
+
+                    Console.WriteLine($"{DateTime.Now}: Done exporting records.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to export data from database. Error: {ex.Message}");
+            }
+
+
+
+
+        }
+
+
+
+
+        private static void InitialiseJonWriter(string destinationFolder)
+        {
+            // first claose the writer is it is laredy open.
+            _jsonWriter?.Close();
+
+            _writer?.Close();
+
+            var filePath = $@"{destinationFolder}\dataexport_{_fileIndex}.json";
+
+            _writer = new StreamWriter(filePath) { AutoFlush = true };
+
+            _jsonWriter = new JsonTextWriter(_writer);
+
+            _fileIndex++;
+
+        }
+
+
 
         private static void InitialiseWriter(string destinationFolder)
         {
