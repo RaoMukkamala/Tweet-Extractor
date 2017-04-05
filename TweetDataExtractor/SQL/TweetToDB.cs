@@ -6,7 +6,7 @@ using TweetDataExtractor.Json;
 
 namespace TweetDataExtractor.SQL
 {
-    internal class TweetToDb
+    public class TweetToDb
     {
         private readonly TweetObject _tweetobj;
 
@@ -127,7 +127,10 @@ namespace TweetDataExtractor.SQL
             paramsToStore[0] = new SqlParameter("@TweetId", SqlDbType.BigInt) {Value = _tweetobj.id};
 
 
-            paramsToStore[8] = new SqlParameter("@TweetLang", SqlDbType.VarChar) {Value = _tweetobj.lang, Size = 10};
+            // Raghava 20170202: sometimes we dont get lang from the tweet, then it fails, so fix for it
+            var lang = _tweetobj.lang ?? string.Empty;
+
+            paramsToStore[8] = new SqlParameter("@TweetLang", SqlDbType.VarChar) {Value = lang, Size = 10};
 
 
             // to convert into hours.

@@ -176,7 +176,59 @@ namespace TweetDataExtractor.Json
         public List<object> symbols { get; set; }
         public List<UserMention> user_mentions { get; set; }
         public List<object> urls { get; set; }
+        public List<Medium> media { get; set; }
     }
+
+    public class Medium
+    {
+        public long id { get; set; }
+        public string id_str { get; set; }
+        public List<int> indices { get; set; }
+        public string media_url { get; set; }
+        public string media_url_https { get; set; }
+        public string url { get; set; }
+        public string display_url { get; set; }
+        public string expanded_url { get; set; }
+        public string type { get; set; }
+        public Sizes sizes { get; set; }
+    }
+
+    public class Large
+    {
+        public int w { get; set; }
+        public int h { get; set; }
+        public string resize { get; set; }
+    }
+
+    public class Thumb
+    {
+        public int w { get; set; }
+        public int h { get; set; }
+        public string resize { get; set; }
+    }
+
+    public class Medium2
+    {
+        public int w { get; set; }
+        public int h { get; set; }
+        public string resize { get; set; }
+    }
+
+    public class Small
+    {
+        public int w { get; set; }
+        public int h { get; set; }
+        public string resize { get; set; }
+    }
+
+    public class Sizes
+    {
+        public Large large { get; set; }
+        public Thumb thumb { get; set; }
+        public Medium2 medium { get; set; }
+        public Small small { get; set; }
+    }
+
 
     public class TweetObject
     {

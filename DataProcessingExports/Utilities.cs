@@ -12,7 +12,7 @@ namespace DataProcessingExports
     {
 
         // Raghava : Check the correct connection string here.
-        public static string connectionString = "Server=ITU-TIME-SERVER;DataBase=ChennaiFloods;Integrated Security=SSPI";
+        public static string connectionString = "Server=ITU-TIME-SERVER;DataBase=BostonMarathon;Integrated Security=SSPI";
         //public static string connectionString = "Server=ITU-TIME-SERVER;DataBase=TwitterDatabase;Integrated Security=SSPI";
 
         public const string TwitterDateFormatString = "ddd MMM dd HH:mm:ss +ffff yyyy";
@@ -98,6 +98,19 @@ namespace DataProcessingExports
 
         }
 
+        public static string GetTimestampForFilenames()
+        {
+            return DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+        }
+
+        public static string TransformTimestampToFilenameformat(string timestamp)
+        {
+            // format: 2015-12-01T20:26:58
+            var ts = timestamp.Replace("-", string.Empty);
+
+            return ts.Replace(":", String.Empty);
+
+        }
 
 
         // Raghava: Extension Methofd on SQlDataReader object..

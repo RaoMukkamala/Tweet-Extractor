@@ -11,7 +11,7 @@ GO
 -- Create date: 
 -- Description:	
 -- =============================================
-ALTER PROCEDURE [dbo].[InsertTweet] 
+CREATE PROCEDURE [dbo].[InsertTweet] 
 	-- Add the parameters for the stored procedure here
 	@TweetId bigint = 0, 
 	@TweetDate datetime null,

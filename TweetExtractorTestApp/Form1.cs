@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -660,5 +661,82 @@ namespace TweetExtractorTestApp
 
         }
 
+        private void button12_Click(object sender, EventArgs e)
+        {
+
+            byte[] lnBuffer;
+            byte[] lnFile;
+
+            try
+            {
+                HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create("http://pbs.twimg.com/media/CVTZTqNWsAAhFb98.jpg");
+                using (HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse())
+                {
+                    using (BinaryReader lxBR = new BinaryReader(webResponse.GetResponseStream()))
+                    {
+                        using (MemoryStream lxMS = new MemoryStream())
+                        {
+                            lnBuffer = lxBR.ReadBytes(1024);
+                            while (lnBuffer.Length > 0)
+                            {
+                                lxMS.Write(lnBuffer, 0, lnBuffer.Length);
+                                lnBuffer = lxBR.ReadBytes(1024);
+                            }
+                            lnFile = new byte[(int)lxMS.Length];
+                            lxMS.Position = 0;
+                            lxMS.Read(lnFile, 0, lnFile.Length);
+                        }
+                    }
+                }
+
+                using (System.IO.FileStream lxFS = new FileStream("34891.jpg", FileMode.Create))
+                {
+                    lxFS.Write(lnFile, 0, lnFile.Length);
+                }
+
+
+
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+
+            }
+
+            MessageBox.Show("done");
+
+
+
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var dateTime = DateTime.Parse("2015-12-01T09:57:22");
+
+                MessageBox.Show(dateTime.ToString());
+
+                WebRequest req = WebRequest.Create("http://pbs.twimg.com/media/CVIVy_VU4AEU_S3.jpg");
+                HttpWebRequest request = (HttpWebRequest)req;
+                request.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0";
+                request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
+                request.Headers.Add("Accept-Encoding", "gzip, deflate");
+                WebResponse response = request.GetResponse();
+
+                Stream stream = response.GetResponseStream();
+                Image img = Image.FromStream(stream);
+
+                img.Save("sample-image.jpg");
+
+                stream.Close();
+
+            }
+            catch (Exception exception)
+            {
+
+                Console.WriteLine(exception);
+            }
+        }
     }
 }

@@ -11,11 +11,13 @@ namespace DataProcessingExports.DataProcessing
     {
 
 
-        private static string sourceFilePath = @"D:\Alivelu-data\Data\Twitter-Data\chennai-data\topic-modeling\Topic-distributions\TopicDistribution-50-topics.csv";
+        private static string sourceFilePath = @"D:\Alivelu-data\Data\Twitter-Data\chennai-data\topic-modeling\20160602-Latest\TopicDistribution-20160602.csv";
 
-        private static string destinationPath = @"D:\Alivelu-data\Data\Twitter-Data\chennai-data\topic-modeling\Topic-distributions\Daywise-Topic-distribution-Top5Only.csv";
+        private static string destinationPath_TopFive = @"D:\Alivelu-data\Data\Twitter-Data\chennai-data\topic-modeling\20160602-Latest\results\Daywise-Topic-distribution-Top5Only.csv";
 
-        private static string tweetTopicFilePath = @"D:\Alivelu-data\Data\Twitter-Data\chennai-data\topic-modeling\Topic-distributions\TweetWise-Topic.csv";
+        private static string destinationPath = @"D:\Alivelu-data\Data\Twitter-Data\chennai-data\topic-modeling\20160602-Latest\results\Daywise-Topic-distribution-all.csv";
+
+        private static string tweetTopicFilePath = @"D:\Alivelu-data\Data\Twitter-Data\chennai-data\topic-modeling\20160602-Latest\results\TweetWise-Topic.csv";
 
         private static int startTopicIndex = 3;
 
@@ -75,23 +77,37 @@ namespace DataProcessingExports.DataProcessing
 
             var daywise_topic_writer = new StreamWriter(destinationPath) { AutoFlush = true };
 
+            var daywise_topic_writer_top5 = new StreamWriter(destinationPath_TopFive) { AutoFlush = true };
+
             daywise_topic_writer.WriteLine("Date,Topic,Count");
 
             foreach (var kvpair in topicsDistributionDictionary)
             {
                 var dict = kvpair.Value;
 
-                var sortedDict = (from kvEntry in dict orderby kvEntry.Value descending select kvEntry).Take(5);
+                var sortedDict = from kvEntry in dict orderby kvEntry.Value descending select kvEntry;
+
+                var sortedDictTop5 = (from kvEntry in dict orderby kvEntry.Value descending select kvEntry).Take(5);
 
                 foreach (var keyValuePair in sortedDict)
                 {
                     daywise_topic_writer.WriteLine($"{kvpair.Key},{keyValuePair.Key},{keyValuePair.Value}");
                 }
+
+
+                foreach (var keyValuePair in sortedDictTop5)
+                {
+                    daywise_topic_writer_top5.WriteLine($"{kvpair.Key},{keyValuePair.Key},{keyValuePair.Value}");
+                }
+
+
             }
 
             tweet_topic_writer.Close();
 
             daywise_topic_writer.Close();
+
+            daywise_topic_writer_top5.Close();
 
 
             Console.WriteLine($"{DateTime.Now}: Done with Exporting. Total records: {_recordCount}");

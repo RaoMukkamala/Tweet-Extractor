@@ -39,6 +39,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,13 +49,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataExports\DataExporter.cs" />
+    <Compile Include="DataExports\ExportImageUrlsFromJsonFiles.cs" />
     <Compile Include="DataExports\ExportUsers.cs" />
     <Compile Include="DataImports\TweetIdExtractor.cs" />
     <Compile Include="DataImports\TweetIdExtractorTUT.cs" />
+    <Compile Include="DataImports\TweetImporterFromJsonFilesToDB.cs" />
     <Compile Include="DataProcessing\DataCleaner.cs" />
     <Compile Include="DataProcessing\ProcessTopicModels.cs" />
     <Compile Include="DataProcessing\RetweetStatusUpdater.cs" />
     <Compile Include="DataProcessing\TweetUserImporter.cs" />
+    <Compile Include="Downloaders\DownloadTweetImages.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities.cs" />

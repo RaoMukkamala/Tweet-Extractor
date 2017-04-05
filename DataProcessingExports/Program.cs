@@ -5,7 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataProcessingExports.DataExports;
+using DataProcessingExports.DataImports;
 using DataProcessingExports.DataProcessing;
+using DataProcessingExports.Downloaders;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using TweetDataExtractor.Json;
@@ -31,10 +33,84 @@ namespace DataProcessingExports
             //ExportTweets();
             //ExportTweetsAsJSON();
             //SortDictionaryTest();
-            ProcessTopicModels.ComputeDominentTopicsDayWise();
 
+            //ProcessTopicModels.ComputeDominentTopicsDayWise();
+
+            // importing tweets to DB
+            // ImportJsonTweetsToDB();
+
+            //TwitterDateTest();
+
+            // ExportImageUrlsFromJson();
+
+            DownloadImages();
 
             Console.ReadLine();
+
+        }
+
+        private static void DownloadImages()
+        {
+            var source = @"C:\Users\Alivelu\Documents\Alivelu-Research-Work\Twitter-Data-Analysis\Chennai-Floods\image-downloads\source-files";
+
+            var destination = @"C:\Users\Alivelu\Documents\Alivelu-Research-Work\Twitter-Data-Analysis\Chennai-Floods\image-downloads\download-images";
+
+            var imageDownloader = new DownloadTweetImages(source, destination);
+
+            imageDownloader.DownloadImages();
+
+
+        } 
+
+
+        private static void TwitterDateTest()
+        {
+            var dateStr = "Mon Apr 15 00:09:45 +0000 2013";
+
+            var dateTwit =Utilities.TryParseTwitterDateTimeString(dateStr, DateTime.MinValue);
+
+            Console.WriteLine(dateTwit.ToString("s"));
+        }
+
+        private static void ExportImageUrlsFromJson()
+        {
+            //var sourceJsonFilesFolder = @"D:\Alivelu-data\Data\Twitter-Data\chennai-data\Extracted-From-Twitter-#chennaiMicro\output\tweets_json";
+
+            //var fnPrefix = "#chennaimicro-image-urls-file";
+
+
+
+            var sourceJsonFilesFolder = @"D:\Alivelu-data\Data\Twitter-Data\chennai-data\Extracted-From-Twitter-Chennai-Floods\output\tweets_json";
+
+            var fnPrefix = "chennai-floods-image-urls-file";
+
+
+
+            var destinationFolder = @"D:\Alivelu-data\Data\Twitter-Data\chennai-data\Chennai-tweet-image-urls";
+
+            var tweetImporter = new ExportImageUrlsFromJsonFiles(sourceJsonFilesFolder, destinationFolder, fnPrefix);
+
+
+            tweetImporter.ExportImageUrlFromJson();
+
+
+
+
+        }
+
+        private static void ImportJsonTweetsToDB()
+        {
+            var sourceJsonFilesFolder = @"D:\Alivelu-data\Data\BostonMarathon\test_images";
+
+            var destinationFolder = @"D:\Alivelu-data\Data\BostonMarathon\test_images\destination_folder";
+
+            var tweetImporter = new TweetImporterFromJsonFilesToDB(sourceJsonFilesFolder,destinationFolder);
+
+
+            tweetImporter.ImportTweetFiles();
+
+
+
 
         }
 
